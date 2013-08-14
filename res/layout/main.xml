@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <RelativeLayout
+    <fragment
+            android:id="@+id/contentRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/background">
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:background="@drawable/yellow_x"
-                android:layout_centerHorizontal="true"/>
-    </RelativeLayout>
+    </fragment>
 
     <LinearLayout
             android:orientation="horizontal"
@@ -32,6 +26,7 @@
                 android:id="@+id/xiikButton"
                 android:baselineAlignBottom="false"
                 android:layout_gravity="center_horizontal|bottom"
+                android:contentDescription="@string/xiik"
                 android:background="@drawable/btn_x"/>
 
         <LinearLayout
@@ -60,7 +55,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/our_team"
-                        android:id="@+id/button1"/>
+                        android:id="@+id/button1"
+                        android:onClick="showOurTeam"/>
             </LinearLayout>
 
             <ImageButton
@@ -68,11 +64,12 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/navigationButton"
                     android:background="@drawable/btn_navigation"
+                    android:contentDescription="@string/email"
                     android:onClick="showMenu"/>
         </LinearLayout>
 
         <ListView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/listView"
                 android:layout_weight="1"
@@ -84,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/emailButton"
                 android:background="@drawable/btn_email"
+                android:contentDescription="@string/email"
                 android:layout_gravity="center_horizontal|bottom"/>
     </LinearLayout>
 </RelativeLayout>
