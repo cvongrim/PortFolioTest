@@ -4,6 +4,7 @@
                 android:layout_height="match_parent">
 
     <fragment
+            android:name="com.colinv.portfoliotest.TestFragment"
             android:id="@+id/contentRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
@@ -27,7 +28,8 @@
                 android:baselineAlignBottom="false"
                 android:layout_gravity="center_horizontal|bottom"
                 android:contentDescription="@string/xiik"
-                android:background="@drawable/btn_x"/>
+                android:background="@drawable/btn_x"
+                android:onClick="showHome"/>
 
         <LinearLayout
                 android:orientation="vertical"
@@ -48,14 +50,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/portfolio"
-                        android:id="@+id/button"
-                        android:clickable="false"/>
+                        android:id="@+id/showPortfolioButton"
+                        android:onClick="showOurPortfolio"/>
 
                 <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/our_team"
-                        android:id="@+id/button1"
+                        android:id="@+id/showOurTeamButton"
                         android:onClick="showOurTeam"/>
             </LinearLayout>
 
