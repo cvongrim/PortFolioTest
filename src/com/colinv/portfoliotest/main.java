@@ -2,15 +2,18 @@ package com.colinv.portfoliotest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class main extends FragmentActivity {
-
 
    @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,15 +49,15 @@ public class main extends FragmentActivity {
     public void showOurPortfolio(View view){
         if(findViewById(R.id.contentRelativeLayout) != null){
             // Create fragment and give it an argument specifying the article it should show
-            Portfolio ourTeamFragment = new Portfolio();
+            Portfolio ourPortfolioFragment = new Portfolio();
 
-            ourTeamFragment.setArguments(getIntent().getExtras());
+            ourPortfolioFragment.setArguments(getIntent().getExtras());
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.contentRelativeLayout, ourTeamFragment);
+            transaction.replace(R.id.contentRelativeLayout, ourPortfolioFragment);
             transaction.addToBackStack(null);
 
             // Commit the transaction
@@ -106,5 +109,6 @@ public class main extends FragmentActivity {
             subMenuLinearLayout .setVisibility(View.GONE);
 
     }
+
 
 }
