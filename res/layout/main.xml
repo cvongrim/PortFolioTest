@@ -70,10 +70,11 @@
                     android:onClick="showMenu"/>
         </LinearLayout>
 
-        <ListView
+        <fragment
+                android:name="com.colinv.portfoliotest.PortfolioList"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/listView"
+                android:layout_height="65dp"
+                android:id="@+id/portfolioListView"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal|bottom"
                 />

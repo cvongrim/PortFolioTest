@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PortFolioTest.iml" filepath="$PROJECT_DIR$/PortFolioTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../twoway-view-master/twoway-view-master/library/src/main/twoway.iml" filepath="$PROJECT_DIR$/../twoway-view-master/twoway-view-master/library/src/main/twoway.iml" />
     </modules>
   </component>
 </project>

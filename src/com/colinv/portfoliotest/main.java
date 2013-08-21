@@ -1,16 +1,11 @@
 package com.colinv.portfoliotest;
 
-import android.app.Activity;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class main extends FragmentActivity {
@@ -19,7 +14,6 @@ public class main extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
 
     }
 

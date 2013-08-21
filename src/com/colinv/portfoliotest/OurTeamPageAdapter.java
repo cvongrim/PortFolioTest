@@ -6,11 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-/**
- * Displays the user-chosen country-specific page to view.
- * @author Adapted from http://www.programmingmobile.com/2013/04/android-tutorial-using-viewpager.html
- *
- */
 public class OurTeamPageAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
