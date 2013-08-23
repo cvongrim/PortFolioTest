@@ -16,7 +16,9 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
         // Create fragment and give it an argument specifying the article it should show
         Portfolio ourPortfolioFragment = new Portfolio();
 
-        ourPortfolioFragment.setArguments(getIntent().getExtras());
+        Bundle args = new Bundle();
+        args.putInt(PortfolioFragment.ARG_POSITION, position);
+        ourPortfolioFragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -65,7 +67,9 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
             // Create fragment and give it an argument specifying the article it should show
             Portfolio ourPortfolioFragment = new Portfolio();
 
-            ourPortfolioFragment.setArguments(getIntent().getExtras());
+            Bundle args = new Bundle();
+            args.putInt(PortfolioFragment.ARG_POSITION, -1);
+            ourPortfolioFragment.setArguments(args);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
@@ -88,15 +92,15 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
     public void showHome(View view){
         if(findViewById(R.id.contentRelativeLayout) != null){
             // Create fragment and give it an argument specifying the article it should show
-            TestFragment testFragment = new TestFragment();
+            YellowX yellowX = new YellowX();
 
-            testFragment.setArguments(getIntent().getExtras());
+            yellowX.setArguments(getIntent().getExtras());
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
             // Replace whatever is in the fragment_container view with this fragment,
             // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.contentRelativeLayout, testFragment);
+            transaction.replace(R.id.contentRelativeLayout, yellowX);
             transaction.addToBackStack(null);
 
             // Commit the transaction

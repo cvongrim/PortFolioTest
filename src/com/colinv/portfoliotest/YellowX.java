@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * Time: 11:37 AM
  * To change this template use File | Settings | File Templates.
  */
-public class TestFragment extends Fragment {
+public class YellowX extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

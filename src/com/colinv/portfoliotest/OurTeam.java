@@ -17,9 +17,6 @@ public class OurTeam extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.our_team, container, false);
 
-
-
-
     }
 
     @Override
@@ -46,13 +43,13 @@ public class OurTeam extends Fragment {
     }
 
     /**
-     * Create and set up one CountryFragment.
-     * @param name Country name.
+     * Create and set up one OurTeamFragment.
+     * @param name Our Team Members.
      */
     Fragment prepareFragment(String name) {
         OurTeamFragment cf = new OurTeamFragment();
         Bundle args = new Bundle();
-        args.putString(OurTeamFragment.COUNTRY_NAME, name);
+        args.putString(OurTeamFragment.OUR_TEAM_MEMBERS, name);
         cf.setArguments(args);
         return cf;
     }

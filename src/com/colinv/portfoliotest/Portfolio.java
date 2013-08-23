@@ -22,10 +22,6 @@ public class Portfolio extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.portfolio, container, false);
-
-
-
-
     }
 
     @Override
@@ -41,7 +37,14 @@ public class Portfolio extends Fragment {
 
 
     private List<Fragment> getFragments() {
+        int imageResourceId = getArguments().getInt("position");
+
+
         List<Fragment> frags = new ArrayList<Fragment>();
+        if(imageResourceId != -1){
+            String str = Integer.toString(imageResourceId);
+            frags.add(prepareFragment(str));
+        }
         frags.add(prepareFragment("Simon"));
         frags.add(prepareFragment("IMPA"));
         frags.add(prepareFragment("EcoPath"));
@@ -52,13 +55,13 @@ public class Portfolio extends Fragment {
     }
 
     /**
-     * Create and set up one CountryFragment.
-     * @param name Country name.
+     * Create and set up one PortfolioFragment.
+     * @param name Portfolio name.
      */
     Fragment prepareFragment(String name) {
         PortfolioFragment cf = new PortfolioFragment();
         Bundle args = new Bundle();
-        args.putString(PortfolioFragment.COUNTRY_NAME, name);
+        args.putString(PortfolioFragment.PORTFOLIO_NAME, name);
         cf.setArguments(args);
         return cf;
     }

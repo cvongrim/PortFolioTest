@@ -1,1 +1,7 @@
-This file was created by IntelliJ IDEA 12.1.4 for binding GitHub repository
+This is a test project to gain experience with different parts of the Android SDK:
+
+This uses:
+Fragments
+ListView Library
+Pager Library
+The TwoWay View Library
