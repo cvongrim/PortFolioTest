@@ -8,7 +8,27 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 
-public class main extends FragmentActivity {
+public class main extends FragmentActivity implements PortfolioList.OnHeadlineSelectedListener{
+
+    public void onArticleSelected(int position) {
+        // The user selected the headline of an article from the HeadlinesFragment
+        // Do something here to display that article
+        // Create fragment and give it an argument specifying the article it should show
+        Portfolio ourPortfolioFragment = new Portfolio();
+
+        ourPortfolioFragment.setArguments(getIntent().getExtras());
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        transaction.replace(R.id.contentRelativeLayout, ourPortfolioFragment);
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    }
+
 
    @Override
     public void onCreate(Bundle savedInstanceState) {
