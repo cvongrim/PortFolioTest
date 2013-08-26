@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -39,7 +40,7 @@ public class PortfolioList extends Fragment {
 
     // Container Activity must implement this interface
     public interface OnHeadlineSelectedListener {
-        public void onArticleSelected(int position);
+        public void onArticleSelected(int position, String url);
     }
 
     public String readJSONFeed(String URL) {
@@ -146,9 +147,11 @@ public class PortfolioList extends Fragment {
                     ArrayList<String> portArray = new ArrayList<String>();
 
                     // Add the data to the array list
+                    portArray.add(post.getString("ID"));
                     portArray.add(post.getString("title"));
                     portArray.add(post.getString("excerpt"));
                     portArray.add(portfolioImage.getString("url"));
+                    portArray.add(post.getString("permalink"));
 
                     // Add that ArrayList to our portFolioArrayList that will create
                     // our DynamicView
@@ -164,7 +167,16 @@ public class PortfolioList extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View child, int position,
                                             long id) {
-                        mCallback.onArticleSelected(position);
+
+                        EditText idEditText = (EditText) child.findViewById(R.id.portfolio_id_edit_text);  // Create a reference to the ID field
+                        EditText urlEditText = (EditText) child.findViewById(R.id.portfolio_url_edit_text);  // Create a reference to the ID field
+
+                        String portfolioID = idEditText.getText().toString(); // Grab the value of the EditText
+                        String portfolioURL = urlEditText.getText().toString(); // Grab the value of the EditText
+
+                        Integer portfolioIDInteger = Integer.valueOf(portfolioID); // Convert it to an integer
+
+                        mCallback.onArticleSelected(portfolioIDInteger, portfolioURL);  // Pass it to the Portfolio Activity
                     }
                 });
 

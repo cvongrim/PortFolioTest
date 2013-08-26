@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 public class main extends FragmentActivity implements PortfolioList.OnHeadlineSelectedListener{
 
-    public void onArticleSelected(int position) {
+    public void onArticleSelected(int position, String url) {
         // The user selected the headline of an article from the HeadlinesFragment
         // Do something here to display that article
         // Create fragment and give it an argument specifying the article it should show
@@ -18,6 +18,7 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
 
         Bundle args = new Bundle();
         args.putInt(PortfolioFragment.ARG_POSITION, position);
+        args.putString(PortfolioFragment.ARG_URL, url);
         ourPortfolioFragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

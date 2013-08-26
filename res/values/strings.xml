@@ -3,6 +3,9 @@
     <string name="app_name">Portfolio Test</string>
     <string name="our_team">Our Team</string>
     <string name="portfolio">Portfolio</string>
+    <string name="portfolio_image_description">Portfolio Image</string>
+    <string name="portfolio_url">Portfolio URL</string>
+    <string name="portfolio_id">Portfolio ID</string>
     <string name="navigation">Navigation</string>
     <string name="email">Email</string>
     <string name="xiik">xiik</string>

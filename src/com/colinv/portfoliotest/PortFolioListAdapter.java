@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -38,14 +39,18 @@ public class PortFolioListAdapter extends BaseAdapter {
             gridView = inflater.inflate(R.layout.portfolio_listview_item, null);
 
             // set value into TextView
-            TextView textView = (TextView) gridView
-                    .findViewById(R.id.grid_item_label);
+            TextView textView = (TextView) gridView.findViewById(R.id.grid_item_label);
+
+            EditText idEditText = (EditText) gridView.findViewById(R.id.portfolio_id_edit_text);
+            EditText urlEditText = (EditText) gridView.findViewById(R.id.portfolio_url_edit_text);
 
             ArrayList<String> portArray = mobileValues.get(position);
-            textView.setText(portArray.get(0));
 
+            textView.setText(portArray.get(1));
+            idEditText.setText(portArray.get(0));
+            urlEditText.setText(portArray.get(4));
 
-            String portfolioImageUrl = portArray.get(2);
+            String portfolioImageUrl = portArray.get(3);
             // set image based on selected text
 
             // Turn on Image Caching

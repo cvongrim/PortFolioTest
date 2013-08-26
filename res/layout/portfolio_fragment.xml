@@ -11,4 +11,16 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/portfolioImageView"
+            android:layout_alignLeft="@+id/portfolioNameView"
+            android:layout_below="@+id/portfolioNameView"
+            android:contentDescription="@string/portfolio_image_description"
+            android:layout_alignParentEnd="false"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="false"
+            />
+
 </RelativeLayout>

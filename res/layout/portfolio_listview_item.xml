@@ -11,6 +11,7 @@
             android:layout_height="75dp"
             android:layout_marginRight="10dp"
             android:src="@drawable/ic_launcher"
+            android:contentDescription="@string/portfolio_image_description"
              />
 
 
@@ -25,5 +26,23 @@
             android:layout_below="@+id/grid_item_image"
             android:maxWidth="100dp"/>
 
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/portfolio_id"
+            android:id="@+id/portfolio_id_edit_text"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/grid_item_image"
+            android:inputType="number"
+            android:visibility="invisible"/>
 
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/portfolio_url"
+            android:id="@+id/portfolio_url_edit_text"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/grid_item_image"
+            android:inputType="textUri"
+            android:visibility="gone"/>
 </RelativeLayout>
