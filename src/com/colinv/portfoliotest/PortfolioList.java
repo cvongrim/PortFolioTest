@@ -150,7 +150,8 @@ public class PortfolioList extends Fragment {
                     portArray.add(post.getString("ID"));
                     portArray.add(post.getString("title"));
                     portArray.add(post.getString("excerpt"));
-                    portArray.add(portfolioImage.getString("url"));
+                    portArray.add(meta.getString("color_work_thumbnail"));
+                    //log.e("Thumb URL", "Thumb URL:" +post.getString("color_work_thumbnail"));
                     portArray.add(post.getString("permalink"));
 
                     // Add that ArrayList to our portFolioArrayList that will create
@@ -161,7 +162,6 @@ public class PortfolioList extends Fragment {
 
                 mListView = (TwoWayView) getActivity().findViewById(R.id.list);
                 mListView.setItemMargin(10);
-                mListView.setLongClickable(true);
                 mListView.setOrientation(TwoWayView.Orientation.HORIZONTAL);
                 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
