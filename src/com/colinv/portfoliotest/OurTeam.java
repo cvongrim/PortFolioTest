@@ -1,6 +1,5 @@
 package com.colinv.portfoliotest;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -118,7 +116,7 @@ public class OurTeam extends Fragment {
 
     }
 
-
+    // TODO Remove this function
     private List<Fragment> getFragments() {
 
         frags.add(prepareFragment("Topher", "http://www.xiik.com/wp-content/uploads/1950/08/Large_Topher.gif", "Topher’s mission with xiik is to foster an effective, collaborative environment of inventive problem solvers. Built into this vision is an enthusiastic commitment to social responsibility and exceeding client expectations. This culture, he believes, creates fresh yet proven, results-driven solutions."));

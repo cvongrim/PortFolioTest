@@ -5,8 +5,9 @@
                                   xmlns:app="http://schemas.android.com/apk/res-auto"
                                   android:id="@+id/list"
                                   android:layout_width="fill_parent"
-                                  android:layout_height="65dp"
+                                  android:layout_height="100dp"
                                   android:drawSelectorOnTop="false"
                                   android:background="@android:color/black"
-                                  tools:context=".PortfoliList"
+                                  android:layout_gravity="center_horizontal|bottom"
+                                  tools:context=".PortfolioList"
                                   />
