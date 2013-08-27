@@ -114,6 +114,7 @@ public class OurTeam extends Fragment {
         new ReadPortfolioJSONFeedTask().execute("http://xiik.com/index.php/team?feed=json");
 
 
+
     }
 
     /**

@@ -1,6 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
-                                   android:background="@drawable/background_our_team"
-                                   android:id="@+id/viewpager"
-                                   android:layout_width="fill_parent"
-                                   android:layout_height="fill_parent" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   android:background="@drawable/background_our_team"
+                                                   android:id="@+id/viewpager"
+                                                   android:layout_width="fill_parent"
+                                                   android:layout_height="fill_parent" />
+
+    <TextView
+        android:layout_width="@dimen/portfolio_description_width"
+        android:layout_height="wrap_content"
+        android:text="@string/bio_lipsum"
+        android:id="@+id/aboutProjectTextView"
+        android:background="#ffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="25dp"
+        android:textColor="#000000"
+        android:padding="25dp"
+        android:visibility="gone"/>
+
+    <ScrollView
+            android:layout_width="@dimen/portfolio_description_width"
+            android:layout_height="@dimen/portfolio_description_height"
+            android:id="@+id/aboutProjectScrollView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:padding="25dp"
+            android:background="#ffffff"
+            android:layout_margin="25dp"
+            android:visibility="invisible">
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    style="@style/PortfolioLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TITLE"
+                    android:id="@+id/portfolioTitleTextView"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio_lipsum"
+                    android:id="@+id/portfolioDescriptionTextView"/>
+
+            <TextView
+                    style="@style/PortfolioLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHALLENGE"
+                    android:id="@+id/portfolioChallengeLabelTextView"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio_lipsum"
+                    android:id="@+id/portfolioChallengeTextView"/>
+
+            <TextView
+                    style="@style/PortfolioLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOLUTION"
+                    android:id="@+id/portfolioSolutionLabelTextView"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio_lipsum"
+                    android:id="@+id/portfolioSolutionTextView"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="+"
+    android:id="@+id/showInfoButton"
+    android:layout_alignRight="@+id/viewpager"
+    android:layout_alignTop="@+id/viewpager"
+    android:onClick="showInfo"/>
+
+</RelativeLayout>

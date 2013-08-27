@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sub_nav_button">40dp</dimen>
+    <dimen name="portfolio_image_max_height">390dp</dimen>
+    <dimen name="portfolio_description_width">300dp</dimen>
+    <dimen name="portfolio_description_height">300dp</dimen>
+</resources>

@@ -44,22 +44,24 @@
                     android:layout_height="fill_parent"
                     android:visibility="invisible"
                     android:id="@+id/subMenuLinearLayout"
-                    android:background="#ffe716"
+                    android:background="@color/xiik_yellow"
                     android:clickable="true">
 
                 <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/sub_nav_button"
                         android:text="@string/portfolio"
                         android:id="@+id/showPortfolioButton"
-                        android:onClick="showOurPortfolio"/>
+                        android:onClick="showOurPortfolio"
+                        android:background="@color/xiik_yellow"/>
 
                 <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/sub_nav_button"
                         android:text="@string/our_team"
                         android:id="@+id/showOurTeamButton"
-                        android:onClick="showOurTeam"/>
+                        android:onClick="showOurTeam"
+                        android:background="@color/xiik_yellow"/>
             </LinearLayout>
 
             <ImageButton
@@ -72,8 +74,8 @@
                     android:layout_gravity="center_horizontal|bottom"/>
         </LinearLayout>
 
-        <fragment
-                android:name="com.colinv.portfoliotest.PortfolioList"
+        <FrameLayout
+
                 android:layout_width="0dp"
                 android:layout_height="115dp"
                 android:id="@+id/portfolioListView"

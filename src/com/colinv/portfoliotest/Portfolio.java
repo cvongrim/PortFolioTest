@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.support.v4.view.ViewPager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -74,8 +77,20 @@ public class Portfolio extends Fragment {
 
                     JSONArray portfolioImages =  meta.getJSONArray("portfolio_images");
 
-                    String portfolioImageTitle =  post.getString("title");
+                    String portfolioTitle =  post.getString("title");
+                    String portfolioExcerpt    =  post.getString("excerpt");
+                    String portfolioChallenge  =  meta.getString("challenge");
+                    String portfolioSolution   =  meta.getString("solution");
 
+                    TextView portfolioTitleTextView = (TextView) getActivity().findViewById(R.id.portfolioTitleTextView);
+                    TextView portfolioExcerptTextView = (TextView) getActivity().findViewById(R.id.portfolioDescriptionTextView);
+                    TextView portfolioChallengeTextView = (TextView) getActivity().findViewById(R.id.portfolioChallengeTextView);
+                    TextView portfolioSolutionTextView = (TextView) getActivity().findViewById(R.id.portfolioSolutionTextView);
+
+                    portfolioTitleTextView.setText(portfolioTitle);
+                    portfolioExcerptTextView.setText(portfolioExcerpt);
+                    portfolioChallengeTextView.setText(portfolioChallenge);
+                    portfolioSolutionTextView.setText(portfolioSolution);
 
                     for (int j = 0; j < portfolioImages.length(); j++) {
                         JSONObject portfolioImageObject = portfolioImages.getJSONObject(j);
@@ -83,7 +98,7 @@ public class Portfolio extends Fragment {
 
                         // Add that ArrayList to our portFolioArrayList that will create
                         // our DynamicView
-                        frags.add(prepareFragment(portfolioImageTitle,portfolioImageURL));
+                        frags.add(prepareFragment(portfolioTitle,portfolioImageURL));
                     }
 
 
@@ -134,5 +149,16 @@ public class Portfolio extends Fragment {
         args.putString(PortfolioFragment.PORTFOLIO_URL, url);
         cf.setArguments(args);
         return cf;
+    }
+
+
+
+
+    public void hideMenu(View view){
+        TextView aboutProjectTextView = (TextView) view.findViewById(R.id.aboutProjectTextView);
+
+        if(aboutProjectTextView .getVisibility() == View.VISIBLE)
+            aboutProjectTextView .setVisibility(View.GONE);
+
     }
 }
