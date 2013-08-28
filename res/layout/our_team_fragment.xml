@@ -11,7 +11,7 @@
             />
 
     <TextView
-            android:id="@+id/employeeNameView"
+            android:id="@+id/employeeNameTextView"
             android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
@@ -24,13 +24,27 @@
             android:textColor="@color/xiik_yellow"/>
 
     <TextView
+            android:id="@+id/employeeJobTitleTextView"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:singleLine="true"
+            android:textColor="@color/xiik_yellow"
+            android:layout_alignRight="@+id/employeeNameTextView"
+            android:layout_below="@+id/employeeNameTextView"/>
+
+    <TextView
             android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:text="@string/bio_lipsum"
             android:id="@+id/teamBio"
             android:gravity="left"
             android:padding="25dp"
-            android:layout_alignRight="@+id/employeeNameView"
-            android:layout_below="@+id/employeeNameView"/>
+            android:layout_alignRight="@+id/employeeNameTextView"
+            android:layout_below="@+id/employeeJobTitleTextView"/>
 
 </RelativeLayout>

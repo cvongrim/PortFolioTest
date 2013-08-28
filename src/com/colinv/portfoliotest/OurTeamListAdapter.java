@@ -52,17 +52,11 @@ public class OurTeamListAdapter  extends BaseAdapter {
             String portfolioImageUrl = portArray.get(3);
             // set image based on selected text
 
-            // Turn on Image Caching
-            DisplayImageOptions options = new DisplayImageOptions.Builder()
-                    .cacheInMemory(true)
-                    .cacheOnDisc(true)
-                    .build();
-
 
             ImageView imgView = (ImageView) gridView.findViewById(R.id.grid_item_image); // Grab Image View
             ImageLoader imageLoader = ImageLoader.getInstance();     // Create Image Loader
             imageLoader.init(ImageLoaderConfiguration.createDefault(context));  // Initialize Loader
-            imageLoader.getInstance().displayImage(portfolioImageUrl, imgView, options);  // Load from the URL into the view
+            imageLoader.getInstance().displayImage(portfolioImageUrl, imgView);  // Load from the URL into the view
 
         } else {
             gridView = (View) convertView;

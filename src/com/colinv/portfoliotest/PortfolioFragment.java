@@ -30,20 +30,12 @@ public class PortfolioFragment extends Fragment {
         TextView messageTextView = (TextView) v.findViewById(R.id.portfolioNameView);
         messageTextView.setText(name);
 
-
-
-        // Turn on Image Caching
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .cacheInMemory(true)
-                .cacheOnDisc(true)
-                .build();
-
         Activity thisActivity = getActivity();
 
         ImageView imgView = (ImageView) v.findViewById(R.id.portfolioImageView); // Grab Image View
         ImageLoader imageLoader = ImageLoader.getInstance();     // Create Image Loader
         imageLoader.init(ImageLoaderConfiguration.createDefault(thisActivity));  // Initialize Loader
-        imageLoader.getInstance().displayImage(url, imgView, options);  // Load from the URL into the view
+        imageLoader.getInstance().displayImage(url, imgView);  // Load from the URL into the view
 
         return v;
     }

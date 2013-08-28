@@ -7,6 +7,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 public class main extends FragmentActivity implements PortfolioList.OnHeadlineSelectedListener, OurTeamList.OnTeamSelectedListener{
@@ -59,6 +62,18 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+       DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+       .cacheInMemory(true)
+       .cacheOnDisc(true)
+       .build();
+
+       // Create global configuration and initialize ImageLoader with this configuration
+       ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+       .defaultDisplayImageOptions(defaultOptions)
+       .build();
+
+       ImageLoader.getInstance().init(config);
 
        if(findViewById(R.id.portfolioListView) != null){
            // Create fragment and give it an argument specifying the article it should show
@@ -184,8 +199,8 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
         RelativeLayout navMenuLinearLayout = (RelativeLayout) findViewById(R.id.navMenuLinearLayout);
         ImageButton xiikButton = (ImageButton) findViewById(R.id.xiikButton);
 
-        int navMenuLinearLayoutWidth = navMenuLinearLayout.getWidth();  // Get Height of Submenu
-        int xiikButtonWidth = xiikButton.getWidth();  // Get Height of Submenu
+        int navMenuLinearLayoutWidth = navMenuLinearLayout.getWidth();  // Get Height of Sub menu
+        int xiikButtonWidth = xiikButton.getWidth();  // Get Height of Sub menu
         float navMenuPositionClosed = 0 - navMenuLinearLayoutWidth;  // Create the closed position of the drawer
 
         navMenuLinearLayout.animate().x(navMenuPositionClosed);  // Close the drawer
@@ -195,7 +210,7 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
         LinearLayout subMenuLinearLayout = (LinearLayout) findViewById(R.id.subMenuLinearLayout);
         ImageButton navigationButton = (ImageButton) findViewById(R.id.navigationButton);
 
-        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Submenu
+        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Sub menu
         float NavigationButtonY = navigationButton.getY();    // Get Y position of navigation button
         float subMenuPositionOpen = NavigationButtonY - subMenuHeight; // Create the open position of the drawer
         float subMenuPositionClosed = NavigationButtonY + subMenuHeight;  // Create the closed position of the drawer
@@ -211,7 +226,7 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
         LinearLayout subMenuLinearLayout = (LinearLayout) findViewById(R.id.subMenuLinearLayout);
         ImageButton navigationButton = (ImageButton) findViewById(R.id.navigationButton);
 
-        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Submenu
+        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Sub menu
         float NavigationButtonY = navigationButton.getY();    // Get Y position of navigation button
         float subMenuPositionClosed = NavigationButtonY + subMenuHeight;  // Create the closed position of the drawer
 

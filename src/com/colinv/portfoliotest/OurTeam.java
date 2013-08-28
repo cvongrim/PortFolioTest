@@ -75,15 +75,16 @@ public class OurTeam extends Fragment {
 
                     // Add the data to the array list
                     String teamMemberName =  post.getString("title");
+
                     String teamMemberPicture =  meta.getString("team_member_portrait_url");
 
-                   // TODO Clean up what I do
-                   // TODO Add Job Title
+                    // TODO Clean Up Output and remove
+                    String teamMemberJobTitle =  meta.getString("job_title");
                     String teamMemberBio =  meta.getString("what_i_do");
 
                     // Add that ArrayList to our portFolioArrayList that will create
                     // our DynamicView
-                    frags.add(prepareFragment(teamMemberName, teamMemberPicture, teamMemberBio));
+                    frags.add(prepareFragment(teamMemberName,teamMemberJobTitle, teamMemberPicture, teamMemberBio));
 
                 }
 
@@ -132,10 +133,11 @@ public class OurTeam extends Fragment {
      * Create and set up one OurTeamFragment.
      * @param name Our Team Members.
      */
-    Fragment prepareFragment(String name, String memberPicture, String bio) {
+    Fragment prepareFragment(String name, String teamMemberJobTitle, String memberPicture, String bio) {
         OurTeamFragment cf = new OurTeamFragment();
         Bundle args = new Bundle();
         args.putString(OurTeamFragment.OUR_TEAM_MEMBERS, name);
+        args.putString(OurTeamFragment.OUR_TEAM_MEMBERS_JOB_TITLE, teamMemberJobTitle);
         args.putString(OurTeamFragment.OUR_TEAM_MEMBERS_PICTURE, memberPicture);
         args.putString(OurTeamFragment.OUR_TEAM_MEMBERS_BIO, bio);
         cf.setArguments(args);
