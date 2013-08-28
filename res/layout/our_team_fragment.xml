@@ -12,7 +12,7 @@
 
     <TextView
             android:id="@+id/employeeNameView"
-            android:layout_width="300dp"
+            android:layout_width="600dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -21,7 +21,7 @@
             android:paddingRight="25dp"
             android:paddingTop="25dp"
             android:singleLine="false"
-            android:textColor="#ffb300"/>
+            android:textColor="@color/xiik_yellow"/>
 
     <TextView
             android:layout_width="600dp"

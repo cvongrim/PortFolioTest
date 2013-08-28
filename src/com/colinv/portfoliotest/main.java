@@ -4,11 +4,9 @@ package com.colinv.portfoliotest;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.*;
 
 
 public class main extends FragmentActivity implements PortfolioList.OnHeadlineSelectedListener, OurTeamList.OnTeamSelectedListener{
@@ -43,7 +41,6 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
 
         Bundle args = new Bundle();
         args.putInt(PortfolioFragment.ARG_POSITION, position);
-        args.putString(PortfolioFragment.ARG_URL, url);
         ourTeamFragment.setArguments(args);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -80,9 +77,8 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
            // Commit the transaction
            transaction.commit();
 
-           // Close the sub menu
-           hideMenu();
-       }
+         }
+
     }
 
     public void showOurTeam(View view){
@@ -90,6 +86,10 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
             // Create fragment and give it an argument specifying the article it should show
             OurTeam ourTeamFragment = new OurTeam();
             OurTeamList ourTeamListFragment = new OurTeamList();
+
+            Bundle args = new Bundle();
+            args.putInt("position", 0);
+            ourTeamFragment.setArguments(args);
 
             ourTeamFragment.setArguments(getIntent().getExtras());
             ourTeamListFragment.setArguments(getIntent().getExtras());
@@ -162,21 +162,60 @@ public class main extends FragmentActivity implements PortfolioList.OnHeadlineSe
         }
     }
 
+    public void showNavMenu(View view) {
+        RelativeLayout navMenuLinearLayout = (RelativeLayout) findViewById(R.id.navMenuLinearLayout);
+        ImageButton xiikButton = (ImageButton) findViewById(R.id.xiikButton);
+
+        int navMenuLinearLayoutWidth = navMenuLinearLayout.getWidth();  // Get Height of Submenu
+        int xiikButtonWidth = xiikButton.getWidth();  // Get Height of Submenu
+        float navMenuPositionOpen = xiikButtonWidth; // Create the open position of the drawer
+        float navMenuPositionClosed = 0 - navMenuLinearLayoutWidth;  // Create the closed position of the drawer
+
+        xiikButton.bringToFront();
+
+        if(navMenuLinearLayout.getX() == navMenuPositionClosed)   // Make sure the drawer is closed
+            navMenuLinearLayout.animate().x(navMenuPositionOpen);  // Open the drawer
+        else
+            navMenuLinearLayout.animate().x(navMenuPositionClosed);  // Close the drawer
+    }
+
+    // TODO Get hideNavMenu to hide the menu properly
+    public void hideNavMenu(){
+        RelativeLayout navMenuLinearLayout = (RelativeLayout) findViewById(R.id.navMenuLinearLayout);
+        ImageButton xiikButton = (ImageButton) findViewById(R.id.xiikButton);
+
+        int navMenuLinearLayoutWidth = navMenuLinearLayout.getWidth();  // Get Height of Submenu
+        int xiikButtonWidth = xiikButton.getWidth();  // Get Height of Submenu
+        float navMenuPositionClosed = 0 - navMenuLinearLayoutWidth;  // Create the closed position of the drawer
+
+        navMenuLinearLayout.animate().x(navMenuPositionClosed);  // Close the drawer
+    }
+
     public void showMenu(View view) {
         LinearLayout subMenuLinearLayout = (LinearLayout) findViewById(R.id.subMenuLinearLayout);
+        ImageButton navigationButton = (ImageButton) findViewById(R.id.navigationButton);
 
-        if(subMenuLinearLayout .getVisibility() == View.VISIBLE)
-            subMenuLinearLayout .setVisibility(View.INVISIBLE);
+        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Submenu
+        float NavigationButtonY = navigationButton.getY();    // Get Y position of navigation button
+        float subMenuPositionOpen = NavigationButtonY - subMenuHeight; // Create the open position of the drawer
+        float subMenuPositionClosed = NavigationButtonY + subMenuHeight;  // Create the closed position of the drawer
+
+        if(subMenuLinearLayout.getY() != subMenuPositionOpen)   // Make sure the drawer is closed
+            subMenuLinearLayout.animate().y(subMenuPositionOpen);  // Open the drawer
         else
-            subMenuLinearLayout .setVisibility(View.VISIBLE);
+           subMenuLinearLayout.animate().y(subMenuPositionClosed);  // Close the drawer
     }
+
 
     public void hideMenu(){
         LinearLayout subMenuLinearLayout = (LinearLayout) findViewById(R.id.subMenuLinearLayout);
+        ImageButton navigationButton = (ImageButton) findViewById(R.id.navigationButton);
 
-        if(subMenuLinearLayout .getVisibility() == View.VISIBLE)
-            subMenuLinearLayout .setVisibility(View.INVISIBLE);
+        int subMenuHeight = subMenuLinearLayout.getHeight();  // Get Height of Submenu
+        float NavigationButtonY = navigationButton.getY();    // Get Y position of navigation button
+        float subMenuPositionClosed = NavigationButtonY + subMenuHeight;  // Create the closed position of the drawer
 
+        subMenuLinearLayout.animate().y(subMenuPositionClosed);  // Close the drawer
     }
 
     public void showInfo(View view) {

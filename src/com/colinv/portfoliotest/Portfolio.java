@@ -107,6 +107,7 @@ public class Portfolio extends Fragment {
                 pager = (ViewPager) getActivity().findViewById(R.id.viewpager);
                 pager.setAdapter(pageAdapter);
 
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

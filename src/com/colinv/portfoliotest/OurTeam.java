@@ -26,6 +26,7 @@ import java.util.List;
 
 public class OurTeam extends Fragment {
     public ViewPager pager;
+    private Integer ourTeamSelectedPosition;
     List<Fragment> frags = new ArrayList<Fragment>();
 
     public String readJSONFeed(String URL) {
@@ -77,7 +78,7 @@ public class OurTeam extends Fragment {
                     String teamMemberPicture =  meta.getString("team_member_portrait_url");
 
                    // TODO Clean up what I do
-
+                   // TODO Add Job Title
                     String teamMemberBio =  meta.getString("what_i_do");
 
                     // Add that ArrayList to our portFolioArrayList that will create
@@ -91,6 +92,9 @@ public class OurTeam extends Fragment {
                 pager = (ViewPager) getActivity().findViewById(R.id.viewpager);
                 pager.setAdapter(pageAdapter);
 
+              //  pager.setCurrentItem(ourTeamSelectedPosition);
+                Log.e("Our Team", "PagerView:" + ourTeamSelectedPosition);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -101,6 +105,10 @@ public class OurTeam extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.our_team, container, false);
 
@@ -110,7 +118,10 @@ public class OurTeam extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-       // List<Fragment> fragments = getFragments();
+        // TODO Add ListSelector for when the user uses the list to select a team member
+       // ourTeamSelectedPosition = getArguments().getInt("position");
+
+        // List<Fragment> fragments = getFragments();
         new ReadPortfolioJSONFeedTask().execute("http://xiik.com/index.php/team?feed=json");
 
 

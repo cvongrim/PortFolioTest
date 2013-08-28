@@ -15,73 +15,79 @@
 
     </fragment>
 
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
+    <ImageButton
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/xiikButton"
+            android:baselineAlignBottom="false"
+            android:layout_gravity="center_horizontal|bottom|left"
+            android:contentDescription="@string/xiik"
+            android:background="@drawable/btn_x"
+            android:onClick="showNavMenu"
             android:layout_alignParentBottom="true"
-            >
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentEnd="false"
+            />
 
-        <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/xiikButton"
-                android:baselineAlignBottom="false"
-                android:layout_gravity="center_horizontal|bottom"
-                android:contentDescription="@string/xiik"
-                android:background="@drawable/btn_x"
-                android:onClick="showHome"/>
+    <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/navMenuLinearLayout"
+            android:layout_gravity="bottom"
+            android:layout_toEndOf="@id/xiikButton">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/menuLinearLayout">
+                android:id="@+id/subMenuLinearLayout"
+                android:background="@color/xiik_yellow"
+                android:clickable="true"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:layout_alignParentBottom="true"
+                android:visibility="visible">
 
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:visibility="invisible"
-                    android:id="@+id/subMenuLinearLayout"
-                    android:background="@color/xiik_yellow"
-                    android:clickable="true">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sub_nav_button"
+                    android:text="@string/portfolio"
+                    android:id="@+id/showPortfolioButton"
+                    android:onClick="showOurPortfolio"
+                    android:background="@color/xiik_yellow"/>
 
-                <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/sub_nav_button"
-                        android:text="@string/portfolio"
-                        android:id="@+id/showPortfolioButton"
-                        android:onClick="showOurPortfolio"
-                        android:background="@color/xiik_yellow"/>
-
-                <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/sub_nav_button"
-                        android:text="@string/our_team"
-                        android:id="@+id/showOurTeamButton"
-                        android:onClick="showOurTeam"
-                        android:background="@color/xiik_yellow"/>
-            </LinearLayout>
-
-            <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/navigationButton"
-                    android:background="@drawable/btn_navigation"
-                    android:contentDescription="@string/email"
-                    android:onClick="showMenu"
-                    android:layout_gravity="center_horizontal|bottom"/>
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sub_nav_button"
+                    android:text="@string/our_team"
+                    android:id="@+id/showOurTeamButton"
+                    android:onClick="showOurTeam"
+                    android:background="@color/xiik_yellow"/>
         </LinearLayout>
+
+        <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/navigationButton"
+                android:background="@drawable/btn_navigation"
+                android:contentDescription="@string/email"
+                android:onClick="showMenu"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_alignParentBottom="true"/>
 
         <FrameLayout
 
-                android:layout_width="0dp"
-                android:layout_height="115dp"
+                android:layout_width="wrap_content"
+                android:layout_height="112dp"
                 android:id="@+id/portfolioListView"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal|bottom"
-                />
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="false"
+                android:layout_toEndOf="@id/navigationButton"
+                android:layout_toLeftOf="@+id/emailButton"/>
 
         <ImageButton
                 android:layout_width="wrap_content"
@@ -89,6 +95,12 @@
                 android:id="@+id/emailButton"
                 android:background="@drawable/btn_email"
                 android:contentDescription="@string/email"
-                android:layout_gravity="center_horizontal|bottom"/>
-    </LinearLayout>
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                />
+
+    </RelativeLayout>
+
+
 </RelativeLayout>
