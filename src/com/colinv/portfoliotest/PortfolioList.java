@@ -139,8 +139,8 @@ public class PortfolioList extends Fragment {
                     JSONObject post = posts.getJSONObject(i); // Get a JSONObject for the post
 
                     JSONObject meta = post.getJSONObject("meta");  // Get the JSONOBject of all the meta data
-                    JSONArray portfolio_images = meta.getJSONArray("portfolio_images"); // Get the JSONArray of all the Images
-                    JSONObject portfolioImage =  portfolio_images.getJSONObject(0);  // Get the url to the first image
+                   // JSONArray portfolio_images = meta.getJSONArray("portfolio_images"); // Get the JSONArray of all the Images
+                   // JSONObject portfolioImage =  portfolio_images.getJSONObject(0);  // Get the url to the first image
 
                     // Now We are going to create an Array List to hold of the JSON data
                     // we just grabbed.
@@ -151,7 +151,8 @@ public class PortfolioList extends Fragment {
                     portArray.add(post.getString("title"));
                     portArray.add(post.getString("excerpt"));
                     portArray.add(meta.getString("color_work_thumbnail"));
-                    //log.e("Thumb URL", "Thumb URL:" +post.getString("color_work_thumbnail"));
+
+                    //Log.e("Thumb URL", "Thumb URL:" +meta.getString("color_work_thumbnail"));
                     portArray.add(post.getString("permalink"));
 
                     // Add that ArrayList to our portFolioArrayList that will create
@@ -189,6 +190,7 @@ public class PortfolioList extends Fragment {
                 });
 
                 Context context = getActivity();
+                Log.e("TEST URL", "setAdapter");
                 mListView.setAdapter(new PortFolioListAdapter(context, portfolioArrayList));
 
 
@@ -216,6 +218,7 @@ public class PortfolioList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.portfolio_listview, container, false);
     }
@@ -227,7 +230,7 @@ public class PortfolioList extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // TODO Get live URL working and fix repeated elements
-        new ReadPortfolioJSONFeedTask().execute("http://xiik.com/responsive/index.php/portfolio/json/");
+        new ReadPortfolioJSONFeedTask().execute("http://xiik.com/portfolio/json/");
 
     }
 

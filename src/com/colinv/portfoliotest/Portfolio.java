@@ -132,8 +132,7 @@ public class Portfolio extends Fragment {
            new ReadPortfolioJSONFeedTask().execute(imageResourceUrl+"/?feed=json");
         }else{
 
-            // TODO Get live URL for what this should be
-            new ReadPortfolioJSONFeedTask().execute("http://xiik.com/responsive/index.php/portfolio/echopath/json/");
+            new ReadPortfolioJSONFeedTask().execute("http://www.xiik.com/portfolio/simon-shopping-destinations/json/");
         }
 
     }
